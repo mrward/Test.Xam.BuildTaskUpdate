@@ -1,0 +1,20 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<UsingTask TaskName="Test.Xam.BuildTaskUpdate.GetTasksAbi" AssemblyFile="$(MSBuildThisFileDirectory)Test.Xam.BuildTaskUpdate.Tasks.dll" />
+
+	<Target Name="_ValidateXFTasks" BeforeTargets="_CheckForInvalidConfigurationAndPlatform" Condition="'$(XFDisableTargetsValidation)' != 'True'">
+		<GetTasksAbi>
+			<Output TaskParameter="AbiVersion" PropertyName="_XFTasksAbi" />
+		</GetTasksAbi>
+
+		<PropertyGroup>
+			<!-- Deliberately incorrect for version 0.1 of the build task -->
+			<_XFTasksExpectedAbi>2</_XFTasksExpectedAbi>
+		</PropertyGroup>
+
+		<Error
+			Text="Tasks do not match targets. Please ensure that all projects reference the same package version, and if the error persists, please restart the IDE."
+			Code="XF002"
+			Condition="'$(_XFTasksAbi)' != '$(_XFTasksExpectedAbi)'" />
+	</Target>
+</Project>

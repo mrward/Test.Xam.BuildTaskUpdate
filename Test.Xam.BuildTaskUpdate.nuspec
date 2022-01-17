@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Test.Xam.BuildTaskUpdate</id>
+    <version>0.1</version>
+    <authors>mward</authors>
+    <owners>mward</owners>
+    <licenseUrl>https://github.com/mrward/</licenseUrl>
+    <projectUrl>https://github.com/mrward/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Test.Xam.BuildTaskUpdate</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+  </metadata>
+  <files>
+    <file src="bin/Test.Xam.BuildTaskUpdate.Tasks.dll" target="build/netstandard1.0" />
+    <file src="bin/Test.Xam.BuildTaskUpdate.targets" target="build/netstandard1.0" />
+    <file src="bin/Test.Xam.BuildTaskUpdate.Tasks.dll" target="build/netstandard2.0" />
+    <file src="bin/Test.Xam.BuildTaskUpdate.targets" target="build/netstandard2.0" />
+  </files>
+</package>
